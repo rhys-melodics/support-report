@@ -37,46 +37,52 @@
   *{box-sizing:border-box}
   html,body{margin:0}
   body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;padding-bottom:64px}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1440px;width:100%;margin:0 auto;padding:0 32px}
 
   header{border-bottom:1px solid var(--line);background:#1C1C1C;position:sticky;top:0;z-index:20}
   .head-inner{display:flex;align-items:center;gap:13px;height:64px}
   .icon{width:34px;height:34px;display:grid;place-items:center;flex:0 0 auto}
   .icon svg{width:100%;height:100%}
-  .title{font-weight:700;letter-spacing:.2px;font-size:18px}
-  .head-right{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12.5px}
+  .title{font-weight:700;letter-spacing:.2px;font-size:26px}
+  .head-right{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14.5px}
   .head-right .dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
 
   .controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:22px 0 18px;position:relative}
   .seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:3px}
-  .seg button{font:600 13px/1 var(--font);color:var(--muted);background:none;border:0;cursor:pointer;padding:8px 14px;border-radius:7px;transition:.15s}
+  .seg button{font:600 14px/1 var(--font);color:var(--muted);background:none;border:0;cursor:pointer;padding:8px 14px;border-radius:7px;transition:.15s}
   .seg button:hover{color:var(--text)}
   .seg button[aria-pressed="true"]{background:var(--yellow);color:#191919}
-  .custom{display:none;align-items:center;gap:8px;color:var(--muted);font-size:13px}
+  .custom{display:none;align-items:center;gap:8px;color:var(--muted);font-size:15px}
   .custom.show{display:inline-flex}
-  .custom input{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:7px 10px;font:500 13px var(--font);color-scheme:dark}
-  .range-label{margin-left:auto;color:var(--muted-2);font-size:12.5px}
+  .custom input{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:7px 10px;font:500 14px var(--font);color-scheme:dark}
+  .range-label{margin-left:auto;color:var(--muted-2);font-size:14.5px}
 
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
   .kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
-  .kpi .eyebrow{font:600 11px/1 var(--font);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
-  .kpi .num{font-weight:800;font-size:40px;line-height:1.05;margin:11px 0 6px;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
-  .kpi .sub{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+  .kpi .eyebrow{font:600 13px/1 var(--font);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .kpi .num{font-weight:800;font-size:44px;line-height:1.05;margin:11px 0 6px;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+  .kpi .sub{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--muted)}
   .delta{font-weight:700;font-variant-numeric:tabular-nums}
   .delta.up{color:var(--green)} .delta.down{color:var(--red)} .delta.flat{color:var(--muted)}
 
   .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+  .tab-bar{display:flex;gap:6px;background:var(--surface-2);border-radius:12px;padding:6px;margin:22px 0 24px;width:fit-content}
+  .tab-btn{background:none;border:0;border-radius:9px;color:var(--muted);font:700 17px var(--font);padding:12px 22px;cursor:pointer;transition:.15s}
+  .tab-btn:hover{color:var(--text)}
+  .tab-btn[aria-selected="true"]{background:var(--yellow);color:#191919}
+  .tab-btn:not([aria-selected="true"]):hover{color:var(--text)}
+  .tab-panel[hidden]{display:none}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
   .col-12{grid-column:span 12} .col-7{grid-column:span 7} .col-5{grid-column:span 5} .col-6{grid-column:span 6}
   .card-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
-  .card-head h2{font-weight:700;font-size:16px;margin:0}
-  .card-head .hint{font-size:12px;color:var(--muted-2);margin-left:auto}
-  .caption{font-size:12.5px;color:var(--muted);margin:2px 0 14px}
+  .card-head h2{font-weight:700;font-size:20px;margin:0}
+  .card-head .hint{font-size:14px;color:var(--muted-2);margin-left:auto}
+  .caption{font-size:16px;color:var(--muted);margin:2px 0 14px}
   #priorityCaption{min-height:2.6em}
   .caption b{color:var(--text);font-weight:600}
-  .chart-box{position:relative;height:300px}
-  .chart-error{position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;color:var(--muted);font:600 13px var(--font);padding:0 20px;background:var(--surface)}
-  .chart-error button{font:600 12px var(--font);color:#191919;background:var(--yellow);border:0;border-radius:7px;padding:7px 14px;cursor:pointer}
+  .chart-box{position:relative;height:370px}
+  .chart-error{position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;color:var(--muted);font:600 14px var(--font);padding:0 20px;background:var(--surface)}
+  .chart-error button{font:600 13px var(--font);color:#191919;background:var(--yellow);border:0;border-radius:7px;padding:7px 14px;cursor:pointer}
   .chart-error .ce-error{display:none}
   .chart-error.is-error .ce-loading{display:none}
   .chart-error.is-error .ce-error{display:block}
@@ -84,6 +90,7 @@
   .chart-box.short{height:264px}
   .chart-box.tall{height:460px}
   .max-btn{margin-left:8px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:7px;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto;transition:.12s}
+  .card-head h2+.max-btn{margin-left:auto}
   .max-btn:hover{color:var(--text);border-color:var(--muted)}
   .max-modal{position:fixed;inset:0;background:rgba(10,10,10,.72);z-index:1000;display:flex;align-items:center;justify-content:center;padding:30px}
   .max-modal[hidden]{display:none}
@@ -93,26 +100,27 @@
   .max-modal-close-bar #maxModalClose:hover{color:var(--text)}
   .max-modal-body{flex:1;min-height:0;overflow-y:auto;padding:4px 20px 20px}
   .max-modal-body .card{height:100%;display:flex;flex-direction:column;border:0;padding:0}
-  .max-modal-body .card .card-head h2{font-size:20px}
+  .max-modal-body .card .card-head h2{font-size:23px}
   .max-modal-body .card .max-btn{display:none}
-  .max-modal-body .card .chart-box{flex:1;height:auto;min-height:340px}
+  .max-modal-body .card .chart-box{flex:1;height:auto;min-height:400px}
   .max-modal-body .card .chart-legend{max-height:120px}
+  .max-modal-body .scroll-fade-top,.max-modal-body .scroll-fade-bottom{display:none}
   .max-modal-body .card .chips-fixed{max-height:110px}
 
   .mini-seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:2px}
-  .mini-seg button{font:600 12px var(--font);color:var(--muted);background:none;border:0;cursor:pointer;padding:5px 10px;border-radius:6px}
+  .mini-seg button{font:600 13px var(--font);color:var(--muted);background:none;border:0;cursor:pointer;padding:5px 10px;border-radius:6px}
   .mini-seg button[aria-pressed="true"]{background:var(--text);color:#191919}
   .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
-  .chip{font:600 12px var(--font);color:var(--muted);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer;transition:.12s;display:inline-flex;align-items:center;gap:7px}
-  .chips-fixed{max-height:76px;overflow-y:auto;padding-right:2px}
-  .chips-fixed .chip{font-size:13px;padding:7px 13px}
+  .chip{font:600 15px var(--font);color:var(--muted);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer;transition:.12s;display:inline-flex;align-items:center;gap:7px}
+  .chips-fixed{max-height:84px;overflow-y:auto;padding-right:2px}
+  .chips-fixed .chip{font-size:16px;padding:7px 13px}
   .scroll-wrap{position:relative}
   .scroll-fade-top,.scroll-fade-bottom{position:absolute;left:0;right:0;height:22px;pointer-events:none;opacity:0;transition:opacity .12s;z-index:1}
   .scroll-fade-top{top:0;background:linear-gradient(to top, transparent, var(--surface))}
   .scroll-fade-bottom{bottom:0;background:linear-gradient(to bottom, transparent, var(--surface))}
   .scroll-fade-top.show,.scroll-fade-bottom.show{opacity:1}
-  .chart-legend{display:flex;flex-wrap:wrap;gap:8px 14px;max-height:84px;overflow-y:auto;margin-top:12px;padding-top:12px;padding-bottom:8px;border-top:1px solid var(--line)}
-  .chart-legend-item{display:inline-flex;align-items:center;gap:7px;font:600 13px var(--font);color:var(--muted);background:none;border:0;cursor:pointer;padding:2px 0}
+  .chart-legend{display:flex;flex-wrap:wrap;gap:8px 14px;max-height:92px;overflow-y:auto;margin-top:12px;padding-top:12px;padding-bottom:8px;border-top:1px solid var(--line)}
+  .chart-legend-item{display:inline-flex;align-items:center;gap:7px;font:600 16px var(--font);color:var(--muted);background:none;border:0;cursor:pointer;padding:2px 0}
   .chart-legend-item .swatch{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
   .chart-legend-item.is-hidden{opacity:.4;text-decoration:line-through}
   .chart-legend-item.is-disabled{cursor:default}
@@ -120,52 +128,78 @@
   .chip[aria-pressed="true"]{color:var(--text);border-color:var(--muted)}
   .chip .swatch{width:9px;height:9px;border-radius:3px}
 
-  .preview-pill{font:700 10.5px var(--font);letter-spacing:.07em;text-transform:uppercase;color:var(--yellow);border:1px solid rgba(255,204,0,.4);background:rgba(255,204,0,.08);border-radius:999px;padding:4px 9px}
+  .preview-pill{font:700 11.5px var(--font);letter-spacing:.07em;text-transform:uppercase;color:var(--yellow);border:1px solid rgba(255,204,0,.4);background:rgba(255,204,0,.08);border-radius:999px;padding:4px 9px}
   .search-row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 6px}
   .search-row input[type=text]{flex:1;min-width:240px;background:var(--surface-2);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:11px 13px;font:500 14px var(--font)}
   .search-row select{background:var(--surface-2);border:1px solid var(--line);color:var(--muted);border-radius:9px;padding:0 12px;font:500 13px var(--font);color-scheme:dark}
-  .btn-go{background:var(--yellow);color:#191919;border:0;border-radius:9px;padding:11px 20px;font:700 14px var(--font);cursor:pointer}
+  .btn-go{background:var(--yellow);color:#191919;border:0;border-radius:9px;padding:11px 20px;font:700 16px var(--font);cursor:pointer}
   table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}
   th{text-align:left;font:700 11px var(--font);letter-spacing:.05em;text-transform:uppercase;color:var(--muted-2);padding:0 10px 10px;border-bottom:1px solid var(--line)}
   td{padding:13px 10px;border-bottom:1px solid var(--line-soft);color:var(--text);vertical-align:top}
   td .snip{color:var(--muted)}
-  .badge{font:700 11px var(--font);padding:3px 8px;border-radius:6px;white-space:nowrap}
+  .badge{font:700 13px var(--font);padding:3px 8px;border-radius:6px;white-space:nowrap}
   .badge.pos{background:rgba(144,211,48,.14);color:var(--green)}
   .badge.neu{background:rgba(141,141,146,.18);color:var(--muted)}
   .badge.neg{background:rgba(255,75,62,.14);color:var(--red)}
   td a{color:var(--yellow);text-decoration:none;font-weight:600}
-  .note{font-size:12px;color:var(--muted-2);margin-top:12px}
-  .adhoc-controls{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;margin:14px 0 6px}
-  .adhoc-field{display:flex;flex-direction:column;gap:6px}
-  .adhoc-field label{font:700 11px var(--font);letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2)}
-  .adhoc-field input[type="text"],.adhoc-field input[type="date"],.adhoc-field select{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;color:var(--text);font:500 13px var(--font);padding:9px 11px}
-  .adhoc-field select[multiple]{min-width:220px}
-  .adhoc-sent-group{display:flex;gap:12px;align-items:center;height:38px}
-  .adhoc-sent-group label{display:flex;align-items:center;gap:5px;font:600 13px var(--font);color:var(--muted);cursor:pointer}
-  .adhoc-date-pair{display:flex;gap:6px;align-items:center}
-  .adhoc-date-pair span{color:var(--muted);font-size:12px}
+  .note{font-size:14px;color:var(--muted-2);margin-top:12px}
+  .adhoc-searchbar{display:flex;gap:0;margin:16px 0 20px;max-width:720px}
+  .adhoc-searchbar input{flex:1;background:var(--surface-2);border:1px solid var(--line);border-right:0;border-radius:10px 0 0 10px;color:var(--text);font:500 16px var(--font);padding:13px 16px}
+  .adhoc-searchbar input:focus{outline:none;border-color:var(--muted)}
+  .adhoc-searchbar .btn-go{border-radius:0 10px 10px 0;padding:13px 26px}
+  .adhoc-filters{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;padding:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;margin-bottom:6px}
+  .adhoc-filter-panel{display:flex;flex-direction:column;gap:9px}
+  .adhoc-filter-label{font:700 13px var(--font);letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2)}
+  .adhoc-sent-group{display:flex;flex-direction:column;gap:9px;justify-content:flex-start;padding-top:2px}
+  .adhoc-sent-group label{display:flex;align-items:center;gap:8px;font:600 16px var(--font);color:var(--muted);cursor:pointer}
+  .topic-tree{max-height:230px;overflow-y:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px}
+  .topic-tree-group{margin-bottom:6px}
+  .topic-tree-topic{display:flex;align-items:center;gap:9px;font:700 15px var(--font);color:var(--text);padding:6px 4px;cursor:pointer;border-radius:6px}
+  .topic-tree-topic:hover{background:rgba(255,255,255,.03)}
+  .topic-tree-subs{margin-left:27px;display:flex;flex-direction:column;gap:1px}
+  .topic-tree-sub{display:flex;align-items:center;gap:9px;font:500 15px var(--font);color:var(--muted);padding:5px 4px;cursor:pointer;border-radius:6px}
+  .topic-tree-sub:hover{background:rgba(255,255,255,.03)}
+  .topic-tree input[type="checkbox"]{width:16px;height:16px;cursor:pointer;accent-color:var(--yellow);flex:0 0 auto}
+  .adhoc-date-label{font:600 14px var(--font);color:var(--muted-2)}
+  .adhoc-cal-popover{top:78px;width:300px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+  .cal-month-label{font:700 15px var(--font);color:var(--text)}
+  .cal-nav{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:16px}
+  .cal-nav:hover{color:var(--text)}
+  .cal-dow{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font:700 11px var(--font);color:var(--muted-2);margin:8px 0 4px}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:36px;gap:2px}
+  .cal-cell{border:0;background:none;color:var(--text);font:500 14px var(--font);cursor:pointer;border-radius:6px;display:flex;align-items:center;justify-content:center;user-select:none}
+  .cal-cell:hover{border-color:var(--muted)}
+  .cal-cell.cal-pad{visibility:hidden;cursor:default}
+  .cal-cell.in-range{background:rgba(255,204,0,.15);border-radius:0}
+  .cal-cell.endpoint{background:var(--yellow);color:#191919;font-weight:700}
   .adhoc-results{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+  .adhoc-pagination{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px}
+  .adhoc-pagination span{font:600 14px var(--font);color:var(--muted)}
+  .adhoc-pagination button{font:600 14px var(--font);color:var(--text);background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:8px 16px;cursor:pointer}
+  .adhoc-pagination button:hover:not(:disabled){border-color:var(--muted)}
+  .adhoc-pagination button:disabled{opacity:.35;cursor:default}
   .adhoc-result{border:1px solid var(--line);border-radius:10px;background:var(--surface-2);overflow:hidden}
   .adhoc-result-head{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer}
   .adhoc-result-head:hover{background:rgba(255,255,255,.02)}
-  .adhoc-date{font:700 12px var(--font);color:var(--muted-2);flex:0 0 78px}
-  .adhoc-subs{font:600 12.5px var(--font);color:var(--text);flex:0 0 auto;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .adhoc-snippet{font-size:12.5px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .adhoc-date{font:700 14px var(--font);color:var(--muted-2);flex:0 0 78px}
+  .adhoc-subs{font:600 15px var(--font);color:var(--text);flex:0 0 auto;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .adhoc-snippet{font-size:15px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
   .adhoc-result-head .chevron{color:var(--muted-2);transition:transform .15s;flex:0 0 auto}
   .adhoc-result.is-open .chevron{transform:rotate(90deg)}
   .adhoc-transcript{display:none;padding:4px 14px 16px;border-top:1px solid var(--line)}
   .adhoc-result.is-open .adhoc-transcript{display:block}
-  .adhoc-meta-row{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted-2);margin:12px 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .adhoc-meta-row{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted-2);margin:12px 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
   .adhoc-meta-row a{color:var(--yellow);text-decoration:none}
-  .adhoc-turn{margin-bottom:10px;padding:9px 12px;border-radius:8px;font-size:13px;line-height:1.5}
-  .adhoc-turn .who{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:3px}
+  .adhoc-turn{margin-bottom:10px;padding:9px 12px;border-radius:8px;font-size:16px;line-height:1.5}
+  .adhoc-turn .who{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:3px}
   .adhoc-turn.customer{background:rgba(51,160,225,.08)}
   .adhoc-turn.customer .who{color:var(--blue)}
-  .adhoc-turn.agent{background:rgba(144,211,48,.08)}
-  .adhoc-turn.agent .who{color:var(--green)}
+  .adhoc-turn.agent{background:rgba(255,204,0,.08)}
+  .adhoc-turn.agent .who{color:var(--yellow)}
   .adhoc-turn.bot{background:rgba(141,141,146,.08)}
   .adhoc-turn.bot .who{color:var(--muted)}
-  .adhoc-turn.system{background:none;color:var(--muted-2);font-style:italic;padding:2px 12px;font-size:11.5px}
+  .adhoc-turn.system{background:none;color:var(--muted-2);font-style:italic;padding:2px 12px;font-size:13.5px}
   footer{color:var(--muted-2);font-size:12px;margin-top:26px;border-top:1px solid var(--line);padding-top:16px;line-height:1.6}
   :focus-visible{outline:2px solid var(--yellow);outline-offset:2px;border-radius:6px}
   @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.col-7,.col-5,.col-6{grid-column:span 12}}
@@ -173,9 +207,9 @@
 
   .picker{position:absolute;z-index:40;top:52px;left:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:0 12px 34px rgba(0,0,0,.45);width:296px}
   .picker[hidden]{display:none}
-  .picker-head{font:600 12px var(--font);color:var(--muted);margin-bottom:10px}
+  .picker-head{font:600 14px var(--font);color:var(--muted);margin-bottom:10px}
   .picker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-  .pm{font:600 12px var(--font);color:var(--text);background:var(--surface-2);border:1px solid var(--line);border-radius:7px;padding:9px 0;text-align:center;cursor:pointer;transition:.1s;user-select:none}
+  .pm{font:600 15px var(--font);color:var(--text);background:var(--surface-2);border:1px solid var(--line);border-radius:7px;padding:9px 0;text-align:center;cursor:pointer;transition:.1s;user-select:none}
   .pm:hover{border-color:var(--muted)}
   .pm.in-range{background:rgba(255,204,0,.15);border-color:rgba(255,204,0,.35)}
   .pm.endpoint{background:var(--yellow);color:#191919;border-color:var(--yellow)}
@@ -194,7 +228,7 @@
   <div class="controls">
     <div class="seg" id="presets" role="group" aria-label="Date range">
       <button data-months="6" aria-pressed="false">6M</button>
-      <button data-months="12" aria-pressed="false">1Y</button>
+      <button data-months="12" aria-pressed="false">12M</button>
       <button data-months="99" aria-pressed="true">All</button>
       <button data-custom="1" aria-pressed="false">Custom</button>
     </div>
@@ -204,14 +238,41 @@
 
   <section class="kpis" id="kpis"></section>
 
-  <section class="grid">
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn" data-tab="sla" aria-selected="true" role="tab">Support performance</button>
+    <button class="tab-btn" data-tab="themes" aria-selected="false" role="tab">Conversations &amp; themes</button>
+  </div>
+
+  <section class="grid tab-panel" data-tab-panel="sla">
     <div class="card col-12" data-card="resp">
-      <div class="card-head"><h2>Response times</h2><span class="hint">Bars show conversation volume (right axis)</span><button class="max-btn" data-max="resp" title="Maximise">&#x2922;</button></div>
-      <p class="caption">Medians from the Responsiveness block, human-replied only. Gaps are months with no recorded value.</p>
+      <div class="card-head"><h2>Response times</h2><button class="max-btn" data-max="resp" title="Maximise">&#x2922;</button></div>
+      <p class="caption">Conversation volume alongside median first response time and median resolution time (time from a conversation opening to its final close), human-replied only. Gaps are months with no recorded value.</p>
       <div class="chart-box"><canvas id="respChart"></canvas><div class="chart-error" id="respError" hidden><div class="ce-loading">Loading the latest response metrics&hellip;</div><div class="ce-error">Couldn't load the latest response metrics.<br><button class="retry-btn" data-source="summary">Retry</button></div></div></div>
       <div class="chart-legend" id="respLegend"></div>
     </div>
 
+    <div class="card col-12" data-card="fin">
+      <div class="card-head"><h2>Fin deflection</h2>
+        <div class="mini-seg" id="finMode" style="margin-left:auto">
+          <button data-mode="abs" aria-pressed="false">Volume</button>
+          <button data-mode="share" aria-pressed="true">Share</button>
+        </div>
+        <button class="max-btn" data-max="fin" title="Maximise">&#x2922;</button>
+      </div>
+      <p class="caption">How conversations split between Fin-only (deflected), human-replied, and no reply.</p>
+      <div class="chart-box"><canvas id="finChart"></canvas><div class="chart-error" id="finError" hidden><div class="ce-loading">Loading the latest Fin metrics&hellip;</div><div class="ce-error">Couldn't load the latest Fin metrics.<br><button class="retry-btn" data-source="summary">Retry</button></div></div></div>
+      <div class="chart-legend" id="finLegend"></div>
+    </div>
+
+    <div class="card col-12" data-card="priority">
+      <div class="card-head"><h2>Resolution vs response time</h2><button class="max-btn" data-max="priority" title="Maximise">&#x2922;</button></div>
+      <p class="caption" id="priorityCaption">Each topic by median resolution time (across) and median first response (up), averaged across the selected date range from the live topic metrics cache. Bubble size = real volume in that range. Click a bubble to see its subtopics.</p>
+      <div class="chart-box"><canvas id="priorityChart"></canvas><div class="chart-error" id="priorityError" hidden><div class="ce-loading">Loading latest topic metrics&hellip;</div><div class="ce-error">Couldn't load the latest topic metrics from the live cache.<br><button class="retry-btn" data-source="topics">Retry</button></div></div></div>
+      <div class="chart-legend" id="priorityLegend"></div>
+    </div>
+  </section>
+
+  <section class="grid tab-panel" data-tab-panel="themes" hidden>
     <div class="card col-6" data-card="topic">
       <div class="card-head"><h2>Topics over time</h2>
         <div class="mini-seg" id="topicShareToggle" style="margin-left:auto" title="Share divides each topic by that month's total, useful for reading trends independent of seasonal volume swings">
@@ -239,73 +300,66 @@
       <div class="chart-legend" id="subLegend"></div>
     </div>
 
-    <div class="card col-6" data-card="fin">
-      <div class="card-head"><h2>Fin deflection</h2>
-        <div class="mini-seg" id="finMode" style="margin-left:auto">
-          <button data-mode="abs" aria-pressed="false">Volume</button>
-          <button data-mode="share" aria-pressed="true">Share</button>
-        </div>
-        <button class="max-btn" data-max="fin" title="Maximise">&#x2922;</button>
-      </div>
-      <p class="caption">How conversations split between Fin-only (deflected), human-replied, and no reply. Watch the red.</p>
-      <div class="chart-box"><canvas id="finChart"></canvas><div class="chart-error" id="finError" hidden><div class="ce-loading">Loading the latest Fin metrics&hellip;</div><div class="ce-error">Couldn't load the latest Fin metrics.<br><button class="retry-btn" data-source="summary">Retry</button></div></div></div>
-      <div class="chart-legend" id="finLegend"></div>
-    </div>
-
-    <div class="card col-6" data-card="sent">
+    <div class="card col-12" data-card="sent">
       <div class="card-head"><h2>Sentiment</h2><span class="hint">Weighted score, 80% target</span><button class="max-btn" data-max="sent" title="Maximise">&#x2922;</button></div>
       <p class="caption">Overall, human-handled, and Fin-only. Fin-only sits much lower and drags the overall down.</p>
       <div class="chart-box"><canvas id="sentChart"></canvas><div class="chart-error" id="sentError" hidden><div class="ce-loading">Loading the latest sentiment data&hellip;</div><div class="ce-error">Couldn't load the latest sentiment data.<br><button class="retry-btn" data-source="summary">Retry</button></div></div></div>
       <div class="chart-legend" id="sentLegend"></div>
     </div>
 
-    <div class="card col-12" data-card="priority">
-      <div class="card-head"><h2>Resolution vs response time</h2><span class="hint">Bubble size = volume</span><button class="max-btn" data-max="priority" title="Maximise">&#x2922;</button></div>
-      <p class="caption" id="priorityCaption">Each topic by median resolution time (across) and median first response (up), averaged across the selected date range from the live topic metrics cache. Bubble size = real volume in that range. Click a bubble to see its subtopics.</p>
-      <div class="chart-box"><canvas id="priorityChart"></canvas><div class="chart-error" id="priorityError" hidden><div class="ce-loading">Loading latest topic metrics&hellip;</div><div class="ce-error">Couldn't load the latest topic metrics from the live cache.<br><button class="retry-btn" data-source="topics">Retry</button></div></div></div>
-      <div class="chart-legend" id="priorityLegend"></div>
-    </div>
-
     <div class="card col-12">
       <div class="card-head"><h2>Ad-hoc conversation search</h2></div>
       <p class="caption">Search real conversations by keyword, subtopic, and sentiment. Uses its own date range, independent of the one above.</p>
-      <div class="adhoc-controls">
-        <div class="adhoc-field" style="flex:2;min-width:240px">
-          <label for="adhocKeyword">Keyword (optional)</label>
-          <input type="text" id="adhocKeyword" placeholder="e.g. refund, login issue, cancelled">
+      <div class="adhoc-searchbar">
+        <input type="text" id="adhocKeyword" placeholder="Search conversation text &ndash; e.g. refund, login issue, cancelled">
+        <button class="btn-go" id="adhocSearchBtn">Search</button>
+      </div>
+      <div class="adhoc-filters">
+        <div class="adhoc-filter-panel" style="flex:1.4;min-width:300px">
+          <div class="adhoc-filter-label">Topics &amp; subtopics</div>
+          <div class="topic-tree" id="adhocTopicTree"></div>
         </div>
-        <div class="adhoc-field">
-          <label for="adhocSubtopics">Subtopics</label>
-          <select id="adhocSubtopics" multiple size="4"></select>
-        </div>
-        <div class="adhoc-field">
-          <label>Sentiment</label>
+        <div class="adhoc-filter-panel" style="min-width:170px">
+          <div class="adhoc-filter-label">Sentiment</div>
           <div class="adhoc-sent-group" id="adhocSentiments">
             <label><input type="checkbox" value="Positive">Positive</label>
             <label><input type="checkbox" value="Neutral">Neutral</label>
             <label><input type="checkbox" value="Negative">Negative</label>
           </div>
         </div>
-        <div class="adhoc-field">
-          <label>Date range</label>
-          <div class="adhoc-date-pair">
-            <input type="date" id="adhocStart"><span>to</span><input type="date" id="adhocEnd">
+        <div class="adhoc-filter-panel" style="min-width:170px">
+          <div class="adhoc-filter-label">Involvement</div>
+          <div class="adhoc-sent-group" id="adhocInvolvement">
+            <label><input type="checkbox" value="human">Human</label>
+            <label><input type="checkbox" value="finOnly">Fin</label>
+            <label><input type="checkbox" value="noReply">No reply</label>
           </div>
         </div>
-        <div class="adhoc-field">
-          <label>&nbsp;</label>
-          <button class="btn-go" id="adhocSearchBtn">Search</button>
+        <div class="adhoc-filter-panel" style="min-width:280px;position:relative">
+          <div class="adhoc-filter-label">Date range</div>
+          <div class="seg" id="adhocDateSeg">
+            <button type="button" data-preset="1" aria-pressed="false">1M</button>
+            <button type="button" data-preset="6" aria-pressed="false">6M</button>
+            <button type="button" data-preset="12" aria-pressed="false">12M</button>
+            <button type="button" data-preset="all" aria-pressed="true">All</button>
+            <button type="button" data-custom="1" aria-pressed="false">Custom</button>
+          </div>
+          <div class="adhoc-date-label" id="adhocDateLabel">Any date</div>
+          <div class="picker adhoc-cal-popover" id="adhocCalPopover" hidden>
+            <div class="cal-head"><button class="cal-nav" id="calPrev" type="button">&#8249;</button><span class="cal-month-label" id="calMonthLabel"></span><button class="cal-nav" id="calNext" type="button">&#8250;</button></div>
+            <div class="picker-head" id="calPickingHint">Pick a start date</div>
+            <div class="cal-dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+            <div class="cal-grid" id="adhocCalendar"></div>
+          </div>
+          <input type="hidden" id="adhocStart"><input type="hidden" id="adhocEnd">
         </div>
       </div>
       <div class="adhoc-results" id="adhocResults"></div>
+      <div class="adhoc-pagination" id="adhocPagination"></div>
       <p class="note" id="adhocNote"></p>
     </div>
   </section>
 
-  <footer>
-    Pulled from Support Report 2.0 (Summary and Topic summary tabs). Figures match the sheet at time of read; this build has a static copy baked in.<br>
-    Jan 2026 has no topic or sentiment categorisation in the source, so it shows as a gap in those charts.
-  </footer>
 </main>
 
 <div id="maxModal" class="max-modal" hidden>
@@ -427,7 +481,7 @@ const SERIES=['#FFCC00','#33A0E1','#FF4B3E','#FF8400','#A23ABC','#90D330','#EB13
 const SUBPAL=['#FFCC00','#33A0E1','#FF4B3E','#FF8400','#A23ABC','#90D330','#EB1368','#2884BA','#DDB103','#7BB22B','#8D8D92'];
 const C={muted:'#8D8D92',grid:'#2E2E2E',sla:'#67676B',green:'#90D330',blue:'#33A0E1',red:'#FF4B3E',orange:'#FF8400',yellow:'#FFCC00',pink:'#EB1368'};
 Chart.defaults.color=C.muted;Chart.defaults.borderColor=C.grid;
-Chart.defaults.font.family="'Avenir Next','Avenir','Mulish',sans-serif";Chart.defaults.font.size=12;
+Chart.defaults.font.family="'Avenir Next','Avenir','Mulish',sans-serif";Chart.defaults.font.size=13;
 Chart.defaults.animation={duration:350,easing:'easeOutQuart'};
 Chart.defaults.transitions.active.animation.duration=0;
 Chart.defaults.responsive=true;
@@ -546,11 +600,16 @@ function renderKPIs(){
   function d(c,p,dir){if(!pre||p==null||p===0||c==null)return{cls:'flat',txt:'-'};const pc=(c-p)/p*100;let cls='flat';if(dir!=='none'&&Math.abs(pc)>=0.5){const imp=(dir==='down'&&pc<0)||(dir==='up'&&pc>0);cls=imp?'up':'down';}return{cls,txt:(pc>0?'\u25B2':pc<0?'\u25BC':'\u2022')+' '+Math.abs(pc).toFixed(1)+'%'};}
   const cards=[
     {eye:'Conversations',num:fmtInt(cur.vol),d:d(cur.vol,pre&&pre.vol,'none'),sub:'vs previous period'},
-    {eye:'Median first response',num:fmtHours(cur.fr),d:d(cur.fr,pre&&pre.fr,'down'),sub:'lower is better'},
+    {eye:'Median first response',num:fmtHours(cur.fr),d:d(cur.fr,pre&&pre.fr,'down'),sub:'target 8h'},
     {eye:'Overall sentiment',num:fmtPct(cur.se),d:d(cur.se,pre&&pre.se,'up'),sub:'target 80%'},
     {eye:'Fin resolution rate',num:fmtPct(cur.fin),d:d(cur.fin,pre&&pre.fin,'up'),sub:'resolved without a human'},
   ];
-  document.getElementById('kpis').innerHTML=cards.map(c=>`<div class="kpi"><div class="eyebrow">${c.eye}</div><div class="num" data-target="${c.num}">${c.num}</div><div class="sub"><span class="delta ${c.d.cls}">${c.d.txt}</span><span>${c.sub}</span></div></div>`).join('');
+  document.getElementById('kpis').innerHTML=cards.map(c=>{
+    const showCompare=!!pre; // no previous period to compare against (e.g. "All" range) - don't show a comparison at all
+    const deltaHtml=showCompare?`<span class="delta ${c.d.cls}">${c.d.txt}</span>`:'';
+    const subHtml=(showCompare||c.sub!=='vs previous period')?`<span>${c.sub}</span>`:'';
+    return `<div class="kpi"><div class="eyebrow">${c.eye}</div><div class="num" data-target="${c.num}">${c.num}</div><div class="sub">${deltaHtml}${subHtml}</div></div>`;
+  }).join('');
 }
 
 let _kpiGen=0;
@@ -574,8 +633,8 @@ function respCfg(){
   const volMax=conv.length?niceMax(Math.max(...conv)*1.1):undefined;
   return{type:'bar',data:{labels:labels(),datasets:[
   {type:'bar',label:'Conversations',data:conv,yAxisID:'vol',order:5,backgroundColor:'rgba(255,204,0,.15)',borderColor:C.yellow,borderRadius:3,barPercentage:.7,categoryPercentage:.8},
-  {type:'line',label:'First response',data:fr,yAxisID:'hours',order:1,borderColor:C.blue,backgroundColor:C.blue,tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
-  {type:'line',label:'Resolution time',data:rs,yAxisID:'hours',order:3,borderColor:C.orange,backgroundColor:C.orange,tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
+  {type:'line',label:'First response',data:fr,yAxisID:'hours',order:1,borderColor:C.orange,backgroundColor:C.orange,tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
+  {type:'line',label:'Resolution time',data:rs,yAxisID:'hours',order:3,borderColor:C.blue,backgroundColor:C.blue,tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
 ]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
   plugins:{legend:{display:false,labels:{pointStyle:'line'}},tooltip:{enabled:true,usePointStyle:true,boxWidth:8,boxHeight:8,callbacks:{labelColor:soloLabelColor,labelPointStyle:soloLabelPointStyle,label:c=>c.dataset.yAxisID==='hours'?c.dataset.label+': '+fmtHours(c.parsed.y):c.dataset.label+': '+fmtInt(c.parsed.y)}}},
   scales:{hours:{position:'left',beginAtZero:true,max:hoursMax,grid:{color:C.grid},title:{display:true,text:'Hours'},ticks:{callback:v=>v+'h'}},vol:{position:'right',beginAtZero:true,max:volMax,grid:{drawOnChartArea:false},title:{display:true,text:'Conversations'}},x:{grid:{display:false}}}}};}
@@ -623,17 +682,17 @@ function finCfg(){
   const tot=sliceArr(DATA.volume.total);const pct=arr=>arr.map((v,i)=>tot[i]?Math.round((v||0)/tot[i]*1000)/10:0);
   const val=arr=>share?pct(arr):arr.map(v=>v||0);
   return{type:'bar',data:{labels:labels(),datasets:[
-    {label:'Fin-only',data:val(sliceArr(DATA.volume.finOnly)),backgroundColor:C.green,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
-    {label:'Human-replied',data:val(sliceArr(DATA.volume.human)),backgroundColor:C.blue,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
+    {label:'Fin-only',data:val(sliceArr(DATA.volume.finOnly)),backgroundColor:C.blue,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
+    {label:'Human-replied',data:val(sliceArr(DATA.volume.human)),backgroundColor:C.yellow,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
     {label:'No reply',data:val(sliceArr(DATA.volume.noReply)),backgroundColor:C.red,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
   ]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
     plugins:{legend:{display:false,labels:{pointStyle:'rectRounded'}},tooltip:{enabled:true,usePointStyle:true,boxWidth:8,boxHeight:8,callbacks:{labelColor:soloLabelColor,labelPointStyle:soloLabelPointStyle,label:c=>c.dataset.label+': '+(c.parsed.y==null?'-':state.finMode==='share'?c.parsed.y+'%':fmtInt(c.parsed.y))}}},
     scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,max:share?100:undefined,grid:{color:C.grid},ticks:{callback:v=>state.finMode==='share'?v+'%':fmtInt(v)}}}}};}
 
-function sentCfg(){if(!DATA.months.length)return null;return{type:'line',data:{labels:labels(),datasets:[
-  {label:'Overall',data:sliceArr(DATA.sentiment.overall).map(v=>v==null?0:v),borderColor:C.yellow,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
-  {label:'Human',data:sliceArr(DATA.sentiment.human).map(v=>v==null?0:v),borderColor:C.green,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
-  {label:'Fin-only',data:sliceArr(DATA.sentiment.finOnly).map(v=>v==null?0:v),borderColor:C.orange,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
+function sentCfg(){if(!DATA.months.length)return null;const noZero=a=>sliceArr(a).map(v=>v===0?null:v);return{type:'line',data:{labels:labels(),datasets:[
+  {label:'Overall',data:noZero(DATA.sentiment.overall),borderColor:C.orange,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
+  {label:'Human',data:noZero(DATA.sentiment.human),borderColor:C.yellow,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
+  {label:'Fin-only',data:noZero(DATA.sentiment.finOnly),borderColor:C.blue,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
   {label:'Target (80%)',data:labels().map(()=>.8),borderColor:C.sla,borderDash:[5,5],pointRadius:0,borderWidth:1.5,skipLegend:true},
 ]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
   plugins:{legend:{display:false,labels:{pointStyle:'line'}},tooltip:{enabled:true,usePointStyle:true,boxWidth:8,boxHeight:8,callbacks:{labelColor:soloLabelColor,labelPointStyle:soloLabelPointStyle,label:c=>c.dataset.label+': '+(c.parsed.y==null?'-':Math.round(c.parsed.y*100)+'%')}}},
@@ -856,16 +915,123 @@ function initApp(){
   state.start=0;state.end=Math.max(0,M-1);
   state.selTopic=(DATA.topics[0]&&DATA.topics[0].name)||null;
   document.getElementById('subHint').textContent=state.selTopic||'';
-  buildChips();buildPickerGrid();updateLabel();buildAll();renderKPIs();countUp();buildAdhocSubtopicSelect();
+  buildChips();buildPickerGrid();updateLabel();buildAll();renderKPIs();countUp();buildAdhocSubtopicSelect();buildAdhocCalendar();
 }
 function buildAdhocSubtopicSelect(){
-  const sel=document.getElementById('adhocSubtopics');
-  if(!sel||!DATA.topics.length)return;
-  sel.innerHTML=DATA.topics.map(t=>{
-    const opts=t.subs.map(s=>`<option value="${escapeHtml(s.name)}">${escapeHtml(s.name)}</option>`).join('');
-    return `<optgroup label="${escapeHtml(t.name)}">${opts}</optgroup>`;
+  const el=document.getElementById('adhocTopicTree');
+  if(!el||!DATA.topics.length)return;
+  el.innerHTML=DATA.topics.map((t,ti)=>{
+    const subs=t.subs.map((s,si)=>`<label class="topic-tree-sub"><input type="checkbox" data-topic-idx="${ti}" data-sub-name="${escapeHtml(s.name)}">${escapeHtml(s.name)}</label>`).join('');
+    return `<div class="topic-tree-group">
+      <label class="topic-tree-topic"><input type="checkbox" data-topic-parent="${ti}">${escapeHtml(t.name)}</label>
+      <div class="topic-tree-subs">${subs}</div>
+    </div>`;
   }).join('');
+  el.querySelectorAll('[data-topic-parent]').forEach(parentCb=>{
+    parentCb.addEventListener('change',()=>{
+      const ti=parentCb.dataset.topicParent;
+      el.querySelectorAll(`[data-topic-idx="${ti}"]`).forEach(childCb=>{childCb.checked=parentCb.checked;});
+    });
+  });
+  el.querySelectorAll('[data-topic-idx]').forEach(childCb=>{
+    childCb.addEventListener('change',()=>{
+      const ti=childCb.dataset.topicIdx;
+      const siblings=[...el.querySelectorAll(`[data-topic-idx="${ti}"]`)];
+      const parentCb=el.querySelector(`[data-topic-parent="${ti}"]`);
+      const checkedCount=siblings.filter(s=>s.checked).length;
+      parentCb.checked=checkedCount===siblings.length;
+      parentCb.indeterminate=checkedCount>0&&checkedCount<siblings.length;
+    });
+  });
 }
+
+let adhocRangeStart=null,adhocRangeEnd=null;
+let adhocPickStart=null; // non-null while mid-selection (start clicked, awaiting end click) - mirrors the global picker's pickStart
+function adhocISO(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function syncAdhocDateInputs(){
+  document.getElementById('adhocStart').value=adhocRangeStart?adhocISO(adhocRangeStart):'';
+  document.getElementById('adhocEnd').value=adhocRangeEnd?adhocISO(adhocRangeEnd):'';
+  const lbl=document.getElementById('adhocDateLabel');
+  lbl.textContent=(adhocRangeStart&&adhocRangeEnd)
+    ? adhocRangeStart.toLocaleDateString('en-NZ',{day:'numeric',month:'short'})+' \u2013 '+adhocRangeEnd.toLocaleDateString('en-NZ',{day:'numeric',month:'short',year:'numeric'})
+    : 'Any date';
+}
+const adhocCalPopover=document.getElementById('adhocCalPopover');
+function openAdhocCalPopover(){adhocPickStart=null;document.getElementById('calPickingHint').textContent='Pick a start date';adhocCalPopover.hidden=false;buildAdhocCalendar();}
+function closeAdhocCalPopover(){adhocCalPopover.hidden=true;adhocPickStart=null;}
+function buildAdhocCalendar(){
+  const el=document.getElementById('adhocCalendar');
+  if(!el||adhocCalPopover.hidden)return;
+  const y=adhocCalViewMonth.getFullYear(),m=adhocCalViewMonth.getMonth();
+  const first=new Date(y,m,1);
+  const startDow=first.getDay();
+  const numDays=new Date(y,m+1,0).getDate();
+  document.getElementById('calMonthLabel').textContent=adhocCalViewMonth.toLocaleDateString('en-NZ',{month:'long',year:'numeric'});
+  let cells='';
+  const TOTAL_CELLS=42; // fixed 6 rows x 7 - keeps the popover the same height regardless of how many weeks a given month spans
+  for(let i=0;i<startDow;i++)cells+='<button class="cal-cell cal-pad" tabindex="-1"></button>';
+  for(let d=1;d<=numDays;d++){
+    const iso=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    cells+=`<button class="cal-cell" data-iso="${iso}">${d}</button>`;
+  }
+  const used=startDow+numDays;
+  for(let i=used;i<TOTAL_CELLS;i++)cells+='<button class="cal-cell cal-pad" tabindex="-1"></button>';
+  el.innerHTML=cells;
+  el.querySelectorAll('.cal-cell:not(.cal-pad)').forEach(cell=>{
+    const iso=cell.dataset.iso;
+    cell.addEventListener('mouseenter',()=>{if(adhocPickStart!==null)adhocMarkRange(adhocPickStart,iso);});
+    cell.addEventListener('click',()=>adhocPickDay(iso));
+  });
+  adhocMarkRange(adhocRangeStart?adhocISO(adhocRangeStart):null,adhocRangeEnd?adhocISO(adhocRangeEnd):null);
+}
+function adhocMarkRange(isoA,isoB){
+  const el=document.getElementById('adhocCalendar');
+  if(!isoA){el.querySelectorAll('.cal-cell').forEach(c=>{c.classList.remove('in-range','endpoint');});return;}
+  const s=isoB&&isoB<isoA?isoB:isoA, e=isoB&&isoB<isoA?isoA:(isoB||isoA);
+  el.querySelectorAll('.cal-cell:not(.cal-pad)').forEach(c=>{
+    const iso=c.dataset.iso;
+    c.classList.toggle('in-range',iso>=s&&iso<=e);
+    c.classList.toggle('endpoint',iso===s||iso===e);
+  });
+}
+function adhocPickDay(iso){
+  if(adhocPickStart===null){
+    adhocPickStart=iso;document.getElementById('calPickingHint').textContent='Now pick an end date';adhocMarkRange(iso,iso);
+  }else{
+    const s=iso<adhocPickStart?iso:adhocPickStart, e=iso<adhocPickStart?adhocPickStart:iso;
+    adhocRangeStart=new Date(s+'T00:00:00');adhocRangeEnd=new Date(e+'T00:00:00');
+    document.querySelectorAll('#adhocDateSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.custom?'true':'false'));
+    syncAdhocDateInputs();
+    closeAdhocCalPopover();
+  }
+}
+let adhocCalViewMonth=new Date();
+document.getElementById('calPrev').addEventListener('click',()=>{adhocCalViewMonth=new Date(adhocCalViewMonth.getFullYear(),adhocCalViewMonth.getMonth()-1,1);buildAdhocCalendar();});
+document.getElementById('calNext').addEventListener('click',()=>{adhocCalViewMonth=new Date(adhocCalViewMonth.getFullYear(),adhocCalViewMonth.getMonth()+1,1);buildAdhocCalendar();});
+document.getElementById('adhocDateSeg').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.custom){
+    document.querySelectorAll('#adhocDateSeg button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+    openAdhocCalPopover();
+    return;
+  }
+  document.querySelectorAll('#adhocDateSeg button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+  closeAdhocCalPopover();
+  if(b.dataset.preset==='all'){
+    adhocRangeStart=null;adhocRangeEnd=null;
+    syncAdhocDateInputs();
+    return;
+  }
+  const months=+b.dataset.preset;
+  const end=new Date();
+  const start=new Date();start.setMonth(start.getMonth()-months);
+  adhocRangeStart=start;adhocRangeEnd=end;
+  adhocCalViewMonth=new Date(end.getFullYear(),end.getMonth(),1);
+  syncAdhocDateInputs();
+});
+document.addEventListener('click',e=>{
+  if(!adhocCalPopover.hidden&&!adhocCalPopover.contains(e.target)&&!(e.target.closest&&e.target.closest('[data-custom]')))closeAdhocCalPopover();
+});
 function escapeHtml(s){
   return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
@@ -892,32 +1058,75 @@ function fmtAdhocDate(d){
 function sentimentBadgeClass(s){
   return s==='Positive'?'pos':s==='Negative'?'neg':'neu';
 }
-async function runAdhocSearch(){
+const ADHOC_PAGE_SIZE=20;
+let adhocCurrentPage=1;
+async function runAdhocSearch(page){
+  page=page||1;
+  adhocCurrentPage=page;
   const btn=document.getElementById('adhocSearchBtn');
   const resultsEl=document.getElementById('adhocResults');
   const noteEl=document.getElementById('adhocNote');
   const keyword=document.getElementById('adhocKeyword').value.trim();
-  const subtopics=[...document.getElementById('adhocSubtopics').selectedOptions].map(o=>o.value);
+  const subtopics=[...document.querySelectorAll('#adhocTopicTree [data-sub-name]:checked')].map(el=>el.dataset.subName);
   const sentiments=[...document.querySelectorAll('#adhocSentiments input:checked')].map(i=>i.value);
+  const involvementChecked=[...document.querySelectorAll('#adhocInvolvement input:checked')].map(i=>i.value);
+  // "Human" and "Fin" each mean "was present at all" - a conversation touched by both should show up
+  // when EITHER is checked, not just when both are. So checking Human includes both human-only and
+  // both-involved conversations; checking Fin includes fin-only and both-involved; dedupe the result.
+  const involvementSet=new Set();
+  if(involvementChecked.includes('human')){involvementSet.add('human');involvementSet.add('both');} // human involvement happened either way, so "both" counts
+  if(involvementChecked.includes('finOnly')){involvementSet.add('finOnly');} // strictly Fin-only - no human touched it at all, so "both" must NOT be included here
+  if(involvementChecked.includes('noReply'))involvementSet.add('noReply');
+  const involvementAllOptions=document.querySelectorAll('#adhocInvolvement input').length;
+  // all checked (or none checked) both mean "no real filter" - omit the param entirely rather than
+  // sending every possible value, and rather than accidentally matching nothing if none are ticked
+  const involvement=(involvementChecked.length>0&&involvementChecked.length<involvementAllOptions)?[...involvementSet]:[];
   const start=document.getElementById('adhocStart').value;
   const end=document.getElementById('adhocEnd').value;
 
-  const params=new URLSearchParams({type:'search'});
+  const params=new URLSearchParams({type:'search',page:String(page),pageSize:String(ADHOC_PAGE_SIZE)});
   if(keyword)params.set('q',keyword);
   if(subtopics.length)params.set('subtopics',subtopics.join(','));
-  if(sentiments.length)params.set('sentiments',sentiments.join(','));
+  if(sentiments.length&&sentiments.length<3)params.set('sentiments',sentiments.join(','));
+  if(involvement.length)params.set('involvement',involvement.join(','));
   if(start)params.set('start',start);
   if(end)params.set('end',end);
+
+  const fullUrl=CACHE_URL+'?'+params.toString();
+  console.log('[adhoc search] requesting:', fullUrl);
 
   btn.disabled=true;btn.textContent='Searching…';
   resultsEl.innerHTML='';noteEl.textContent='';
   try{
-    const res=await fetch(CACHE_URL+'?'+params.toString());
+    const res=await fetch(fullUrl);
+    console.log('[adhoc search] response status:', res.status, res.ok, '| final URL after any redirects:', res.url, '| redirected:', res.redirected);
+    console.log('[adhoc search] content-type header:', res.headers.get('content-type'));
     if(!res.ok)throw new Error('HTTP '+res.status);
-    const data=await res.json();
+    const rawText=await res.text();
+    console.log('[adhoc search] raw response text (first 500 chars):', rawText.slice(0,500));
+    let data;
+    try{
+      data=JSON.parse(rawText);
+    }catch(parseErr){
+      console.error('[adhoc search] JSON.parse failed on raw response - this is not valid JSON at all:', parseErr);
+      throw parseErr;
+    }
+    console.log('[adhoc search] typeof parsed data:', typeof data, Array.isArray(data)?'(array)':'');
+    if(typeof data==='string'){
+      // Known Apps Script gotcha: response body was itself a JSON-encoded string (double-encoded),
+      // so the first parse just unwraps a string instead of the real object. Try parsing again.
+      console.warn('[adhoc search] parsed result was a STRING, not an object - attempting a second JSON.parse (double-encoding fallback)');
+      try{
+        data=JSON.parse(data);
+        console.log('[adhoc search] second parse succeeded, typeof now:', typeof data);
+      }catch(doubleParseErr){
+        console.error('[adhoc search] second parse also failed:', doubleParseErr);
+      }
+    }
+    console.log('[adhoc search] data.results present?', data&&Array.isArray(data.results), '| length:', data&&data.results&&data.results.length, '| totalMatches:', data&&data.totalMatches, '| keys on data:', data&&typeof data==='object'?Object.keys(data):'n/a');
     renderAdhocResults(data);
   }catch(e){
-    console.error('adhoc search',e);
+    console.error('[adhoc search] request failed:', e);
     resultsEl.innerHTML='';
     noteEl.textContent="Couldn't reach the search endpoint. Check the Apps Script deployment and try again.";
   }finally{
@@ -927,9 +1136,11 @@ async function runAdhocSearch(){
 function renderAdhocResults(data){
   const resultsEl=document.getElementById('adhocResults');
   const noteEl=document.getElementById('adhocNote');
-  const results=(data&&data.results)||[];
+  const pagEl=document.getElementById('adhocPagination');
+  const results=((data&&data.results)||[]).slice(0,ADHOC_PAGE_SIZE); // defensive cap client-side too, in case the backend hasn't adopted pageSize yet
   if(!results.length){
     resultsEl.innerHTML='';
+    pagEl.innerHTML='';
     noteEl.textContent='No conversations matched those filters.';
     return;
   }
@@ -959,22 +1170,47 @@ function renderAdhocResults(data){
     </div>`;
   }).join('');
   resultsEl.querySelectorAll('.adhoc-result-head').forEach(head=>{
-    head.addEventListener('click',()=>head.parentElement.classList.toggle('is-open'));
+    head.addEventListener('click',()=>{
+      const thisResult=head.parentElement;
+      const wasOpen=thisResult.classList.contains('is-open');
+      resultsEl.querySelectorAll('.adhoc-result.is-open').forEach(r=>r.classList.remove('is-open'));
+      if(!wasOpen)thisResult.classList.add('is-open');
+    });
   });
   const shown=results.length;
   const total=data.totalMatches!=null?data.totalMatches:shown;
-  noteEl.textContent=data.capped
-    ? `Showing the ${shown} most recent of ${total} matches — narrow your search to see more precisely.`
-    : `${total} conversation${total===1?'':'s'} matched.`;
+  const totalPages=Math.max(1,Math.ceil(total/ADHOC_PAGE_SIZE));
+  noteEl.textContent=`${total} conversation${total===1?'':'s'} matched.`;
+  if(totalPages>1){
+    pagEl.innerHTML=`<button type="button" id="adhocPrevPage"${adhocCurrentPage<=1?' disabled':''}>&#8249; Previous</button><span>Page ${adhocCurrentPage} of ${totalPages}</span><button type="button" id="adhocNextPage"${adhocCurrentPage>=totalPages?' disabled':''}>Next &#8250;</button>`;
+    const prevBtn=document.getElementById('adhocPrevPage'),nextBtn=document.getElementById('adhocNextPage');
+    if(prevBtn)prevBtn.addEventListener('click',()=>runAdhocSearch(adhocCurrentPage-1));
+    if(nextBtn)nextBtn.addEventListener('click',()=>runAdhocSearch(adhocCurrentPage+1));
+  }else{
+    pagEl.innerHTML='';
+  }
 }
-document.getElementById('adhocSearchBtn').addEventListener('click',runAdhocSearch);
-document.getElementById('adhocKeyword').addEventListener('keydown',e=>{if(e.key==='Enter')runAdhocSearch();});
+document.getElementById('adhocSearchBtn').addEventListener('click',()=>runAdhocSearch(1));
+document.getElementById('adhocKeyword').addEventListener('keydown',e=>{if(e.key==='Enter')runAdhocSearch(1);});
 
 for(const k in BUILDERS)setChartState(k,overlayStateFor(k)); // show loading immediately, before either fetch resolves
 document.addEventListener('click',e=>{
   const b=e.target.closest('.retry-btn');if(!b)return;
   if(b.dataset.source==='summary')loadSummary();else loadCache();
 });
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const tab=btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===tab?'true':'false'));
+    document.querySelectorAll('.tab-panel').forEach(p=>{p.hidden=p.dataset.tabPanel!==tab;});
+    // Charts in the panel just revealed were originally built while hidden (0x0 canvas), so their very first
+    // real render happens now. A plain resize() doesn't replay the normal entrance animation (Chart.js's resize
+    // transition is instant by default) - rebuilding from scratch, the same path used on initial page load,
+    // gives the same value-based animation everywhere instead of an inconsistent one-off reveal.
+    requestAnimationFrame(()=>{buildAll();});
+  });
+});
+
 loadCache();
 loadSummary();
 
