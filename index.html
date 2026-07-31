@@ -252,15 +252,15 @@
     </div>
 
     <div class="card col-12" data-card="fin">
-      <div class="card-head"><h2>Fin deflection</h2>
+      <div class="card-head"><h2>Melobot deflection</h2>
         <div class="mini-seg" id="finMode" style="margin-left:auto">
           <button data-mode="abs" aria-pressed="false">Volume</button>
           <button data-mode="share" aria-pressed="true">Share</button>
         </div>
         <button class="max-btn" data-max="fin" title="Maximise">&#x2922;</button>
       </div>
-      <p class="caption">How conversations split between Fin-only (deflected), human-replied, and no reply.</p>
-      <div class="chart-box"><canvas id="finChart"></canvas><div class="chart-error" id="finError" hidden><div class="ce-loading">Loading the latest Fin metrics&hellip;</div><div class="ce-error">Couldn't load the latest Fin metrics.<br><button class="retry-btn" data-source="summary">Retry</button></div></div></div>
+      <p class="caption">How conversations split between Melobot-only (deflected), human-replied, and no reply.</p>
+      <div class="chart-box"><canvas id="finChart"></canvas><div class="chart-error" id="finError" hidden><div class="ce-loading">Loading the latest Melobot metrics&hellip;</div><div class="ce-error">Couldn't load the latest Melobot metrics.<br><button class="retry-btn" data-source="summary">Retry</button></div></div></div>
       <div class="chart-legend" id="finLegend"></div>
     </div>
 
@@ -302,7 +302,7 @@
 
     <div class="card col-12" data-card="sent">
       <div class="card-head"><h2>Sentiment</h2><span class="hint">Weighted score, 80% target</span><button class="max-btn" data-max="sent" title="Maximise">&#x2922;</button></div>
-      <p class="caption">Overall, human-handled, and Fin-only. Fin-only sits much lower and drags the overall down.</p>
+      <p class="caption">Overall, human-handled, and Melobot-only. Melobot-only sits much lower and drags the overall down.</p>
       <div class="chart-box"><canvas id="sentChart"></canvas><div class="chart-error" id="sentError" hidden><div class="ce-loading">Loading the latest sentiment data&hellip;</div><div class="ce-error">Couldn't load the latest sentiment data.<br><button class="retry-btn" data-source="summary">Retry</button></div></div></div>
       <div class="chart-legend" id="sentLegend"></div>
     </div>
@@ -331,7 +331,7 @@
           <div class="adhoc-filter-label">Involvement</div>
           <div class="adhoc-sent-group" id="adhocInvolvement">
             <label><input type="checkbox" value="human">Human</label>
-            <label><input type="checkbox" value="finOnly">Fin</label>
+            <label><input type="checkbox" value="finOnly">Melobot</label>
             <label><input type="checkbox" value="noReply">No reply</label>
           </div>
         </div>
@@ -589,7 +589,7 @@ const isoR=ctx=>{const d=ctx.dataset.data,i=ctx.dataIndex;if(d[i]==null)return 0
 function renderKPIs(){
   if(summaryState.loading||summaryState.error){
     const msg=summaryState.error?'Unavailable':'Loading\u2026';
-    document.getElementById('kpis').innerHTML=['Conversations','Median first response','Overall sentiment','Fin resolution rate']
+    document.getElementById('kpis').innerHTML=['Conversations','Median first response','Overall sentiment','Melobot resolution rate']
       .map(eye=>`<div class="kpi"><div class="eyebrow">${eye}</div><div class="num">&ndash;</div><div class="sub"><span>${msg}</span></div></div>`).join('');
     return;
   }
@@ -602,7 +602,7 @@ function renderKPIs(){
     {eye:'Conversations',num:fmtInt(cur.vol),d:d(cur.vol,pre&&pre.vol,'none'),sub:'vs previous period'},
     {eye:'Median first response',num:fmtHours(cur.fr),d:d(cur.fr,pre&&pre.fr,'down'),sub:'target 8h'},
     {eye:'Overall sentiment',num:fmtPct(cur.se),d:d(cur.se,pre&&pre.se,'up'),sub:'target 80%'},
-    {eye:'Fin resolution rate',num:fmtPct(cur.fin),d:d(cur.fin,pre&&pre.fin,'up'),sub:'resolved without a human'},
+    {eye:'Melobot resolution rate',num:fmtPct(cur.fin),d:d(cur.fin,pre&&pre.fin,'up'),sub:'resolved without a human'},
   ];
   document.getElementById('kpis').innerHTML=cards.map(c=>{
     const showCompare=!!pre; // no previous period to compare against (e.g. "All" range) - don't show a comparison at all
@@ -682,7 +682,7 @@ function finCfg(){
   const tot=sliceArr(DATA.volume.total);const pct=arr=>arr.map((v,i)=>tot[i]?Math.round((v||0)/tot[i]*1000)/10:0);
   const val=arr=>share?pct(arr):arr.map(v=>v||0);
   return{type:'bar',data:{labels:labels(),datasets:[
-    {label:'Fin-only',data:val(sliceArr(DATA.volume.finOnly)),backgroundColor:C.blue,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
+    {label:'Melobot-only',data:val(sliceArr(DATA.volume.finOnly)),backgroundColor:C.blue,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
     {label:'Human-replied',data:val(sliceArr(DATA.volume.human)),backgroundColor:C.yellow,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
     {label:'No reply',data:val(sliceArr(DATA.volume.noReply)),backgroundColor:C.red,stack:'s',borderRadius:2,barPercentage:.85,categoryPercentage:.85},
   ]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
@@ -692,7 +692,7 @@ function finCfg(){
 function sentCfg(){if(!DATA.months.length)return null;const noZero=a=>sliceArr(a).map(v=>v===0?null:v);return{type:'line',data:{labels:labels(),datasets:[
   {label:'Overall',data:noZero(DATA.sentiment.overall),borderColor:C.orange,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
   {label:'Human',data:noZero(DATA.sentiment.human),borderColor:C.yellow,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
-  {label:'Fin-only',data:noZero(DATA.sentiment.finOnly),borderColor:C.blue,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
+  {label:'Melobot-only',data:noZero(DATA.sentiment.finOnly),borderColor:C.blue,backgroundColor:'transparent',tension:.3,pointRadius:isoR,pointHoverRadius:5,borderWidth:2.5,spanGaps:false},
   {label:'Target (80%)',data:labels().map(()=>.8),borderColor:C.sla,borderDash:[5,5],pointRadius:0,borderWidth:1.5,skipLegend:true},
 ]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
   plugins:{legend:{display:false,labels:{pointStyle:'line'}},tooltip:{enabled:true,usePointStyle:true,boxWidth:8,boxHeight:8,callbacks:{labelColor:soloLabelColor,labelPointStyle:soloLabelPointStyle,label:c=>c.dataset.label+': '+(c.parsed.y==null?'-':Math.round(c.parsed.y*100)+'%')}}},
@@ -1039,15 +1039,16 @@ function escapeHtml(s){
 function formatTranscript(raw){
   if(!raw)return '<p class="adhoc-turn system">No transcript available.</p>';
   const turns=String(raw).split(/\s*\|\s*/).filter(Boolean);
+  const displayWho=w=>/bot/i.test(w)?'Melobot':w; // the raw transcript data says "Bot" - display it as our actual product name
   return turns.map(turn=>{
     const m=turn.match(/^\[([^\]]+)\]:\s*([\s\S]*)$/);
     if(!m)return `<div class="adhoc-turn system">${escapeHtml(turn)}</div>`;
     const who=m[1].trim(),msg=m[2].trim();
     if(/conversation rating request/i.test(msg)){
-      return `<div class="adhoc-turn system">${escapeHtml(who)} sent a conversation rating request</div>`;
+      return `<div class="adhoc-turn system">${escapeHtml(displayWho(who))} sent a conversation rating request</div>`;
     }
     const cls=/customer/i.test(who)?'customer':/agent/i.test(who)?'agent':'bot';
-    return `<div class="adhoc-turn ${cls}"><span class="who">${escapeHtml(who)}</span>${escapeHtml(msg)}</div>`;
+    return `<div class="adhoc-turn ${cls}"><span class="who">${escapeHtml(displayWho(who))}</span>${escapeHtml(msg)}</div>`;
   }).join('');
 }
 function fmtAdhocDate(d){
@@ -1162,7 +1163,7 @@ function renderAdhocResults(data){
           ${r.handledBy?`<span>Handled by: ${escapeHtml(r.handledBy)}</span>`:''}
           ${r.firstResponseMins!=null?`<span>First response: ${fmtHours(r.firstResponseMins/60)}</span>`:''}
           ${r.resolutionMins!=null?`<span>Resolution: ${fmtHours(r.resolutionMins/60)}</span>`:''}
-          ${r.finInvolved?`<span>Fin involved: ${escapeHtml(r.finInvolved)}${r.finResolutionState?' ('+escapeHtml(r.finResolutionState)+')':''}</span>`:''}
+          ${r.finInvolved?`<span>Melobot involved: ${escapeHtml(r.finInvolved)}${r.finResolutionState?' ('+escapeHtml(r.finResolutionState)+')':''}</span>`:''}
           ${r.intercomUrl?`<a href="${escapeHtml(r.intercomUrl)}" target="_blank" rel="noopener">Open in Intercom &#8599;</a>`:''}
         </div>
         ${formatTranscript(r.transcript)}
